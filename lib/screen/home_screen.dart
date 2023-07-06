@@ -1,10 +1,23 @@
+import 'package:ebook_reader_1/screen/bookmark_screen.dart';
+import 'package:ebook_reader_1/screen/view_book_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex =0;
+  final List<Widget> _screenList =[
+    HomeScreen(),
+    ViewBookScreen(),
+    BookMarkScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +41,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Stack(
+      body:
+       Stack(
           children: [
             Container(
               height: 733,
@@ -92,6 +106,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+          
           ]),
     );
   }

@@ -1,8 +1,10 @@
 
 import 'package:ebook_reader_1/constant/color.dart';
+import 'package:ebook_reader_1/constant/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../item_view/bookmark_item_view.dart';
 import '../widget/bookmark_widget.dart';
 
 class BookMarkScreen extends StatelessWidget {
@@ -13,31 +15,10 @@ class BookMarkScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        title: Padding(
-          padding: const EdgeInsets.only(top: 23,left:26),
-          child: Row(
-            children: [
-              SvgPicture.asset("assets/star.svg",color: Colors.white,
-              fit: BoxFit.cover,
-              width: 30,
-              height: 35,),
-              const Padding(
-                padding: EdgeInsets.only(left: 8,top: 3),
-                child: Text("Stared",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w700,
-                ),))
-            ],
-          ),
-        ),
+        title: StaredWidget(),
         elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20,top: 17),
-            child: IconButton(onPressed: (){},
-             icon: Icon(Icons.settings,size: 30,)),
-          )
+        actions:const  [
+          SettingIcon()
         ],
       ),
       body: Stack(
@@ -73,3 +54,4 @@ class BookMarkScreen extends StatelessWidget {
     );
   }
 }
+
