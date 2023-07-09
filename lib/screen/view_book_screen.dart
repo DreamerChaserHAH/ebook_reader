@@ -1,7 +1,6 @@
 
 
 import 'package:ebook_reader_1/constant/color.dart';
-import 'package:ebook_reader_1/item_view/content_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

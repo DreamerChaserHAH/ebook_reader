@@ -1,4 +1,4 @@
-#Thu Jul 06 23:28:40 MMT 2023
-base.0=C\:\\Users\\ASUS\\Desktop\\ebook_reader_1\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
+#Fri Jul 07 17:34:31 MMT 2023
+base.0=C\:\\Users\\User\\Documents\\Htet Aung Hlaing\\Freelancing\\ebook_reader\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
+renamed.0=classes.dex
