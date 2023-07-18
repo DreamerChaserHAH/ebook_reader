@@ -117,8 +117,8 @@ class FloatingTabBar extends StatelessWidget {
                             heightFactor: 0.8,
                             child: AnimatedButton(
                               key: homeButton,
-                              unselectedImagePath: "home_unselected.svg",
-                              selectedImagePath: "home_selected.svg",
+                              unselectedImagePath: "assets/home_unselected.svg",
+                              selectedImagePath: "assets/home_selected.svg",
                               isSelected: isHomeSelected,
                               targetScreen: Screens.homeScreen,
                               onclicked: onHomeButtonClicked,
@@ -131,8 +131,8 @@ class FloatingTabBar extends StatelessWidget {
                             heightFactor: 0.8,
                             child: AnimatedButton(
                               key: bookButton,
-                              unselectedImagePath: "book_unselected.svg",
-                              selectedImagePath: "book_selected.svg",
+                              unselectedImagePath: "assets/book_unselected.svg",
+                              selectedImagePath: "assets/book_selected.svg",
                               isSelected: isBookSelected,
                               targetScreen: Screens.bookScreen,
                               onclicked: onBookButtonClicked,
@@ -145,8 +145,8 @@ class FloatingTabBar extends StatelessWidget {
                             heightFactor: 0.8,
                             child: AnimatedButton(
                               key: bookmarkButton,
-                              unselectedImagePath: "star_unselected.svg",
-                              selectedImagePath: "star_selected.svg",
+                              unselectedImagePath: "assets/star_unselected.svg",
+                              selectedImagePath: "assets/star_selected.svg",
                               isSelected: isBookmarkSelected,
                               targetScreen: Screens.bookmarkScreen,
                               onclicked: onBookmarkButtonClicked,

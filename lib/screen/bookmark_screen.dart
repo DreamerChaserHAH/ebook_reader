@@ -1,4 +1,5 @@
 import 'package:ebook_reader_1/constant/color.dart';
+import 'package:ebook_reader_1/data_manager.dart';
 import 'package:ebook_reader_1/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,24 +45,13 @@ class BookMarkScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 30,
-      child: Container(
-        width: 400,
-        height: 800,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25), topRight: Radius.circular(25)),
-            color: Color.fromRGBO(245, 245, 245, 1)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return BookMarkWidget();
-            },
-            itemCount: 15,
-          ),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return BookMarkWidget(targetPage: bookmarkData.bookmarkLists[index]);
+        },
+        itemCount: bookmarkData.bookmarkLists.length,
       ),
     );
   }
