@@ -11,6 +11,8 @@ GlobalKey<MainScreenState> mainscreenState = GlobalKey<MainScreenState>();
 GlobalKey<DisplayerContainerState> displayerContainerState =
     GlobalKey<DisplayerContainerState>();
 GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+GlobalKey<TableOfContentsWidgetState> TOCKey =
+    GlobalKey<TableOfContentsWidgetState>();
 
 enum Screens {
   homeScreen,
@@ -31,6 +33,10 @@ class TableOfContentsWidget extends StatefulWidget {
 }
 
 class TableOfContentsWidgetState extends State<TableOfContentsWidget> {
+  bool isInSubtitleMode() {
+    return isInSubtitleMode();
+  }
+
   void showSubtitles(int title_id) {
     setState(() {
       widget.isInSubtitleMode = true;
@@ -139,7 +145,8 @@ class TableOfContentsWidgetState extends State<TableOfContentsWidget> {
                         child: Text(
                           TableOfContentsData.tacList[widget.targetTitle]
                               .chapters[index].title,
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                              color: Colors.white, fontFamily: "IslamicFont"),
                         ),
                       ));
                 } else {
@@ -208,25 +215,34 @@ class MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     updateAppBar(Screens.homeScreen);
 
-    return Scaffold(
-        key: scaffoldKey,
-        backgroundColor: MainColors.backgroundYellow,
-        appBar: widget.currentAppbar,
-        drawer: TableOfContentsWidget(),
-        body: Stack(children: [
-          Padding(
-              padding: EdgeInsets.only(top: 16.0),
-              child: FractionallySizedBox(
-                  widthFactor: 1.0,
-                  heightFactor: 1.0,
-                  child: DisplayerContainer(
-                      key: displayerContainerState,
-                      currentScreen: Screens.homeScreen))),
-          FloatingTabBar(
-              isHomeSelected: true,
-              isBookSelected: false,
-              isBookmarkSelected: false)
-        ]));
+    return WillPopScope(
+        onWillPop: () async {
+          /*if (scaffoldKey.currentState!.isDrawerOpen) {
+            if (TOCKey.currentState!.isInSubtitleMode()){} Navigator.of(context).pop();
+            return false;
+          }*/
+
+          return true;
+        },
+        child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: MainColors.backgroundYellow,
+            appBar: widget.currentAppbar,
+            drawer: TableOfContentsWidget(key: TOCKey),
+            body: Stack(children: [
+              Padding(
+                  padding: EdgeInsets.only(top: 16.0),
+                  child: FractionallySizedBox(
+                      widthFactor: 1.0,
+                      heightFactor: 1.0,
+                      child: DisplayerContainer(
+                          key: displayerContainerState,
+                          currentScreen: Screens.homeScreen))),
+              FloatingTabBar(
+                  isHomeSelected: true,
+                  isBookSelected: false,
+                  isBookmarkSelected: false)
+            ])));
   }
 }
 

@@ -60,28 +60,39 @@ class FloatingTabBar extends StatelessWidget {
   final bool isBookmarkSelected;
 
   void onHomeButtonClicked() {
-    displayerContainerState.currentState?.setCurrentScreen(Screens.homeScreen);
+    if (displayerContainerState.currentState?.widget.currentScreen !=
+        Screens.homeScreen) {
+      displayerContainerState.currentState
+          ?.setCurrentScreen(Screens.homeScreen);
 
-    homeButton.currentState?.changeBool(true);
-    bookButton.currentState?.changeBool(false);
-    bookmarkButton.currentState?.changeBool(false);
+      homeButton.currentState?.changeBool(true);
+      bookButton.currentState?.changeBool(false);
+      bookmarkButton.currentState?.changeBool(false);
+    }
   }
 
   void onBookButtonClicked() {
-    displayerContainerState.currentState?.setCurrentScreen(Screens.bookScreen);
+    if (displayerContainerState.currentState?.widget.currentScreen !=
+        Screens.bookScreen) {
+      displayerContainerState.currentState
+          ?.setCurrentScreen(Screens.bookScreen);
 
-    homeButton.currentState?.changeBool(false);
-    bookButton.currentState?.changeBool(true);
-    bookmarkButton.currentState?.changeBool(false);
+      homeButton.currentState?.changeBool(false);
+      bookButton.currentState?.changeBool(true);
+      bookmarkButton.currentState?.changeBool(false);
+    }
   }
 
   void onBookmarkButtonClicked() {
-    displayerContainerState.currentState
-        ?.setCurrentScreen(Screens.bookmarkScreen);
+    if (displayerContainerState.currentState?.widget.currentScreen !=
+        Screens.bookmarkScreen) {
+      displayerContainerState.currentState
+          ?.setCurrentScreen(Screens.bookmarkScreen);
 
-    homeButton.currentState?.changeBool(false);
-    bookButton.currentState?.changeBool(false);
-    bookmarkButton.currentState?.changeBool(true);
+      homeButton.currentState?.changeBool(false);
+      bookButton.currentState?.changeBool(false);
+      bookmarkButton.currentState?.changeBool(true);
+    }
   }
 
   FloatingTabBar(
